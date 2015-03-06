@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<title>To-Do List</title>
+  <meta charset="utf-8">
+  <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script src="final_Moderizr.js"></script>
+  <script>
+    Modernizr.load([
+      "final.js",
+    {
+      test: Modernizr.geolocation,
+       yep: "final_geoLoc.js",
+      nope: "final_noGeoLoc.js"
+    },
+    {
+      test: Modernizr.localstorage,
+       yep: "final_local.js", 
+      nope: "final_noLocal.js", 
+      complete: function() 
+      {
+        init();
+      }
+    }
+    ]);
+  </script>
+  <link rel="stylesheet" href="final.css">
+</head>
+<body>
+  <h1>My To-Do List</h1>
+  <ul id="todoList">
+  </ul>
+  
+  <form>
+  <fieldset>
+    <legend>Add a new to-do item</legend>
+    <div class="tableContainer">
+      <div class="tableRow">
+        <label for="task">Task: </label>
+            <input type="text" id="task" size="35" placeholder="get milk">
+      </div>
+      <div class="tableRow">
+        <label for="who">Who should do it: </label>
+            <input type="text" id="who" placeholder="Scott">
+      </div>
+      <div class="tableRow">
+        <label for="dueDate">Due Date: </label>
+            <input type="input" id="dueDate"> <span id="dateFormat">*must be in the following format: MM/DD/YYYY, YYYY/MM/DD, or January 1, 2012</span>
+            
+      </div>
+      <div class="tableRow">
+        <label for="submit"></label>
+        <input type="button" id="submit" value="submit">
+      </div>
+    </div>
+  </fieldset>
+  </form> 
+  <form> 
+  <div id="searchInputs">
+    <input type="text" id="searchFor" placeholder="look for">
+    <input type="button" id="searchButton" value="Search">
+  </div>
+  </form> 
+  <br><br>
+  <ul id="putHitsHere">
+  </ul>
+  <div id="map">
+  </div>
+</body>
+</html>  
